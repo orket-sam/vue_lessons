@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 1</title>
+</head>
+<body>
+    <div id="app">
+        <login-form>
+           
+    </div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        let app=Vue.createApp({
+            data(){
+                return {
+                    count:0
+                }
+            }
+
+            ,methods:{
+                
+            },
+        })
+
+        app.component('login-form',{
+            template:`
+            <h3>{{this.title}}</h3>
+            <form  @submit.prevent="onSubmit">
+                <input placeholder="Email" type="email" v-model="email">
+                <input type="password" v-model="password">
+                <button>Login</button>
+                </form>
+
+                
+            `,
+
+            data:function(){
+                return{
+                    title:'Enter your login details',
+                    email:'',
+                    password:'',
+                }
+            },methods:{
+                onSubmit(){
+                    console.log(this.email,this.password)
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>

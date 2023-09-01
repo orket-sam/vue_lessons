@@ -1,0 +1,10 @@
+input{
+    margin: 20px 10px;
+    display: block;
+}
+button{
+    margin-left: 20px;
+    width: 100px;
+    padding: 10px 10px;
+}
+

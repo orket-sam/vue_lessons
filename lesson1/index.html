@@ -1,56 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lesson 1</title>
+    <title>Vue lesson 1</title>
 </head>
+
 <body>
     <div id="app">
-        <login-form>
-           
+        {{greetings}} <br>
+
+        <input placeholder="Enter email" type="email" v-model="email"><br>
+        <input placeholder="Password" type="password" v-model="password"><br>
+        <button v-if="!isLoggedin" v-on:click="toggleButton(email,password)">Sign in</button>
     </div>
-
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
-        let app=Vue.createApp({
-            data(){
+        let app = Vue.createApp({
+            data () {
                 return {
-                    count:0
-                }
-            }
-
-            ,methods:{
-                
-            },
-        })
-
-        app.component('login-form',{
-            template:`
-            <h3>{{this.title}}</h3>
-            <form  @submit.prevent="onSubmit">
-                <input placeholder="Email" type="email" v-model="email">
-                <input type="password" v-model="password">
-                <button>Login</button>
-                </form>
-
-                
-            `,
-
-            data:function(){
-                return{
-                    title:'Enter your login details',
-                    email:'',
-                    password:'',
+                    greetings: 'Welcome to Vue',
+                    isLoggedin: false,
+                    email: '',
+                    password: ''
                 }
             },methods:{
-                onSubmit(){
-                    console.log(this.email,this.password)
+                toggleButton(email,password){
+                    console.log(email + password +'!!!')
                 }
             }
         })
+
         app.mount('#app')
     </script>
+
 </body>
+
 </html>

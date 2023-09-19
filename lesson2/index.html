@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2-components</title>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <login-form>
+            
+
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        let app=Vue.createApp({
+
+        })
+        app.component('login-form',{
+
+            data(){
+                return {login:'Welcome to Katambe',email:'',password:''}
+            },
+            template:`
+            <form @submit.prevent=handleSubmit>
+                {{login}}
+            <input placeholder="Email" type="email" v-model='email'>
+            <input placeholder="Password" type="password" v-model="password">
+            <button>Sign In</button>
+                </form>
+            `,methods:{
+                handleSubmit:function(){
+                    console.log(this.email,this.password)
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+    
+</body>
+</html>
